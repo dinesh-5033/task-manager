@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const tasks = await Task.find();
-    res.json(tasks);
+    res.json(tasks);   // MUST be array
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

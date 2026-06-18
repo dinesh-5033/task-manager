@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <h1>Task Manager</h1>
+  <div class="container">
 
-  <input type="text" id="title" placeholder="Enter task..." />
-  <button id="addBtn">Add Task</button>
+    <!-- AUTH BOX -->
+    <div class="auth-box" id="authBox">
+      <h2>Task Manager Login</h2>
 
-  <ul id="taskList"></ul>
+      <input type="text" id="username" placeholder="Username">
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+
+      <div class="auth-buttons">
+        <button onclick="register()">Register</button>
+        <button onclick="login()">Login</button>
+      </div>
+
+      <p id="authMsg"></p>
+    </div>
+
+    <!-- TASK APP -->
+    <div class="app hidden" id="app">
+
+      <header>
+        <h1>My Tasks</h1>
+        <button onclick="logout()" class="logout">Logout</button>
+      </header>
+
+      <div class="task-input">
+        <input type="text" id="title" placeholder="Enter new task">
+        <button id="addBtn">Add</button>
+      </div>
+
+      <ul id="taskList"></ul>
+
+    </div>
+
+  </div>
 
   <script src="app.js"></script>
-
 </body>
 </html>

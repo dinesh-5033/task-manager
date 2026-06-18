@@ -4,13 +4,15 @@ const API = "https://task-manager-api-maiu.onrender.com/api/tasks";
 async function loadTasks() {
   try {
     const res = await fetch(API);
-    const tasks = await res.json();
+    const data = await res.json();
+
+    console.log("API RESPONSE:", data);
 
     document.getElementById("taskList").innerHTML =
-      tasks.map(t => `<li>${t.title}</li>`).join("");
+      data.map(t => `<li>${t.title}</li>`).join("");
 
   } catch (err) {
-    console.error("Error loading tasks:", err);
+    console.error("FETCH ERROR:", err);
   }
 }
 

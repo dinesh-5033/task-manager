@@ -17,7 +17,8 @@ router.post("/", async (req, res) => {
 // GET TASKS
 router.get("/", async (req, res) => {
   try {
-    res.json({ message: "API working fine" });
+    const tasks = await Task.find();
+    res.json(tasks);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

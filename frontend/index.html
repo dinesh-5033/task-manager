@@ -10,38 +10,14 @@
 
   <div class="container">
 
-    <!-- AUTH BOX -->
-    <div class="auth-box" id="authBox">
-      <h2>Task Manager Login</h2>
+    <h1>📝 Task Manager</h1>
 
-      <input type="text" id="username" placeholder="Username">
-      <input type="email" id="email" placeholder="Email">
-      <input type="password" id="password" placeholder="Password">
-
-      <div class="auth-buttons">
-        <button onclick="register()">Register</button>
-        <button onclick="login()">Login</button>
-      </div>
-
-      <p id="authMsg"></p>
+    <div class="task-input">
+      <input type="text" id="title" placeholder="Enter a new task..." />
+      <button id="addBtn">+ Add Task</button>
     </div>
 
-    <!-- TASK APP -->
-    <div class="app hidden" id="app">
-
-      <header>
-        <h1>My Tasks</h1>
-        <button onclick="logout()" class="logout">Logout</button>
-      </header>
-
-      <div class="task-input">
-        <input type="text" id="title" placeholder="Enter new task">
-        <button id="addBtn">Add</button>
-      </div>
-
-      <ul id="taskList"></ul>
-
-    </div>
+    <ul id="taskList"></ul>
 
   </div>
 

@@ -5,27 +5,42 @@ const router = express.Router();
 
 // CREATE TASK
 router.post("/", async (req, res) => {
-  const task = new Task(req.body);
-  await task.save();
-  res.json(task);
+  try {
+    const task = new Task(req.body);
+    await task.save();
+    res.json(task);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // GET TASKS
 router.get("/", async (req, res) => {
-  const tasks = await Task.find();
-  res.json(tasks);
+  try {
+    res.json({ message: "API working fine" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // UPDATE TASK
 router.put("/:id", async (req, res) => {
-  const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  res.json(task);
+  try {
+    const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(task);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // DELETE TASK
 router.delete("/:id", async (req, res) => {
-  await Task.findByIdAndDelete(req.params.id);
-  res.json({ message: "Task deleted" });
+  try {
+    await Task.findByIdAndDelete(req.params.id);
+    res.json({ message: "Task deleted" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 module.exports = router;

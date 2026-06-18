@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api/tasks";
+const API = "https://task-manager-api-maiu.onrender.com/api/tasks";
 
 async function loadTasks() {
   const res = await fetch(API);
@@ -11,9 +11,13 @@ async function loadTasks() {
 async function addTask() {
   const title = document.getElementById("title").value;
 
+  if (!title) return alert("Enter task first");
+
   await fetch(API, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({ title })
   });
 
